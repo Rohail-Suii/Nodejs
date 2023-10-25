@@ -14,12 +14,15 @@ var studentSchema = new mongoose.Schema({
         required: true,  
     }
 })
- var Student = mongoose.model("Student", studentSchema);
+var Student = mongoose.model("Student", studentSchema);
+try {
     Student.create({
         name: "Rahul",
         rollno: "1234"
     }).then((student) => console.log(student)).catch((err) => console.log(err));
-    .catch((err) => console.log(err));
+} catch (err) {
+    console.log(err);
+}
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
